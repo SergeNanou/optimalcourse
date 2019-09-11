@@ -1,0 +1,20 @@
+{% extends "connect/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container ">
+    <div class="jumbotron">
+      {% if registered %}
+        <h1><font color="black">Merci pour votre enregistrement</font></h1>
+      {% else %}
+        <h1><font color="black"> CREATION DE COMPTE  </font></h1>
+        <h3><font color="black">Remplissez le formulaire</font></h3>
+         <form enctype="multipart/form-data" method="POST"><font color="black">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          <input type="submit" name="" value="Register"></font>
+         </form>
+        
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
