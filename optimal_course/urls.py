@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 import connect
+import tic
 from connect import views
+from tic import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +28,6 @@ urlpatterns = [
     url(r'^user_login/$', connect.views.user_login, name='user_login'),
     url(r'^connexion/$', connect.views.connexion, name='connexion'),
     url(r'^user_logout/$', connect.views.user_logout, name='logout'),
+    url(r'^tic/$', tic.views.tic, name='tic'),
 
 ]
