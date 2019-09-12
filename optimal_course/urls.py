@@ -18,8 +18,10 @@ from django.urls import path
 from django.conf.urls import url, include
 import connect
 import tic
+import forum
 from connect import views
 from tic import views
+from forum import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +31,7 @@ urlpatterns = [
     url(r'^connexion/$', connect.views.connexion, name='connexion'),
     url(r'^user_logout/$', connect.views.user_logout, name='logout'),
     url(r'^tic/$', tic.views.tic, name='tic'),
+    url(r'^publish/$', forum.views.publish, name='publish'),
+    url(r'^read/$', forum.views.read, name='read'),
 
 ]

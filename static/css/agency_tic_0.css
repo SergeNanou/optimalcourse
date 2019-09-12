@@ -184,13 +184,14 @@ img::-moz-selection {
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url("../img/recep.jpg");
+  background-image: url("../img/cloud.png");
+  background-color: orange;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
   filter: brightness(90%);
-  height: 400px;
+  height: 535px;
   
 }
 
