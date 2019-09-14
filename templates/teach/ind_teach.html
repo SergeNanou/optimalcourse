@@ -24,7 +24,7 @@
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/agency_tic.css' %}"> 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/agency_teach.css' %}"> 
   <!-- Custom styles for this template -->
   
  
@@ -63,7 +63,7 @@
             {% endif %}
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger "  href="{% url 'teach' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
+            <a class="nav-link js-scroll-trigger " href="{% url 'teach' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact"><button type="button" class="btn btn-light btn-sm"><font color="red">Rappel Gratuit </font></button></a>
@@ -84,7 +84,7 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-heading text-uppercase"><font color="Blue"></font></div>
+        <div class="intro-heading text-uppercase"><font color="orange">TEACHING</font></div>
         
       </div>
     </div>
@@ -95,17 +95,89 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">FORUM</h2>
-          <h3 class="section-subheading text-muted">OptimalCourse, la plateforme de mise en relation éducative</h3>
+          <h2 class="section-heading text-uppercase">Devenir Enseignant</h2>
+          <h3 class="section-subheading text-muted">Recrutement rapide,précis et concis en trois phases</h3>
         </div>
       </div>
-      <form action="{% url 'publish' %}" method="post">
-         {% csrf_token %}
-         {{ form.as_p}}
-         <input type="submit" value="Submit">
-      </form>
-    </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="{% static 'img/selec.png' %}" alt="">
+              <h4>Selection de dossiers</h4>
+              <p class="text-muted">Première étape du processus</p>
+              
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="{% static 'img/quiz.png' %}" alt="">
+              <h4>Tests d'évaluation de connaissances</h4>
+              <p class="text-muted">Deuxième étape du processus</p>
+              
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="{% static 'img/conference.jpg' %}" alt="photo_cryptography">
+              <h4>Vidéos et formations à la pédagogie optimalcourse</h4>
+              <p class="text-muted">Dernière étape du processus</p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <p class="large text-muted"><h6> Déposer son CV</h6></p>
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <p class="large text-muted">
+              <h6> {% if sauvegarde %}
+                    <p>Ce contact a bien été enregistré.
+                    </p>
+                   {% endif %}
+                   <p>
+                      <form method="post" enctype="multipart/form-data" action=".">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit"/>
+                      </form>
+                   </p>
+              </h6>
+            </p>
+
+          </div>
+          
+        </div>
+      
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 text-center card" style="background-color: orange">
+          <h2 class="btn btn-secondary">Dix raisons pour enseigner à Optimalcourse </h2>
+          <ul style = "list-style-type: square">
+            <li><h6>Entreprise innovante au service de la réussite des apprenants</h6></li>
+            <li><h6>Vivre une expérience plus enrichissante</h6></li>
+            <li><h6>Aider à acquerir une connaissance tout en devellopant des compétences pédagogiques</h6></li>
+            <li><h6>Nouvelle pédagogie basée sur un enseignement de proximité et d'éfficacité</h6></li>
+            <li><h6>Intégrer une pédagogie remettant l'élève au centre de l'apprentissage</h6></li>
+            <li><h6>Contribuer au progrès de l'humanité</h6></li>
+            <li><h6>Participer à la formation de la jeunesse</h6></li>
+            
+          </ul>
+          
+        </div>
+      </div>
     
+    <div class="row">
+     <div class="col-lg-12 text-center service-heading">
+      <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#contact">Nous contacter</a>
+     </div>
+    </div>
+  </div>
     
   </section>
   <!-- Team -->

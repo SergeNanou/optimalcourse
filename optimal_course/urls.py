@@ -19,9 +19,11 @@ from django.conf.urls import url, include
 import connect
 import tic
 import forum
+import teach
 from connect import views
 from tic import views
 from forum import views
+from teach import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,5 +35,9 @@ urlpatterns = [
     url(r'^tic/$', tic.views.tic, name='tic'),
     url(r'^publish/$', forum.views.publish, name='publish'),
     url(r'^read/$', forum.views.read, name='read'),
+    url(r'^teach/$', teach.views.teach, name='teach'),
+    url(r'^help_ent/$', forum.views.help_ent, name='help_ent'),
+    url(r'^help_ent_publish/$', forum.views.help_ent_publish, 
+    	name='help_ent_publish'),
 
 ]

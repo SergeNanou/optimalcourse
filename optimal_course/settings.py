@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'connect',
     'tic',
     'forum',
+    'teach',
 ]
 
 MIDDLEWARE = [

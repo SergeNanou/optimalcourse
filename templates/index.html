@@ -63,7 +63,7 @@
             {% endif %}
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger " href="#team"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
+            <a class="nav-link js-scroll-trigger " href="{% url 'teach' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact"><button type="button" class="btn btn-light btn-sm"><font color="red">Rappel Gratuit </font></button></a>
@@ -147,7 +147,7 @@
         </div>
         <div class=" col-lg-5 ">
           <div class=" card btn btn-light">
-            <h3 class="btn btn-secondary">Forum Entraide</h3>
+            <h3 class="btn btn-secondary"><a href="{% url 'help_ent' %}">Forum Entraide</a></h3>
             <img class="text-center" src="{% static 'img/forum_int_1.jpg' %}" height="250px" width="300px"alt="logo_forum_introduction">
           </div>  
         </div>    
