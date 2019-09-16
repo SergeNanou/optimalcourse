@@ -20,10 +20,12 @@ import connect
 import tic
 import forum
 import teach
+import study
 from connect import views
 from tic import views
 from forum import views
 from teach import views
+from study import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,5 +43,10 @@ urlpatterns = [
     	name='help_ent_publish'),
     url(r'^help_ent_ans/$', forum.views.help_ent_ans, 
     	name='help_ent_ans'),
+    url(r'^study/$', study.views.study, 
+    	name='study'),
+    url(r'^coaching/$', study.views.coaching, name='coaching'),
+    url(r'^stage/$', study.views.stage, name='stage'),
+    url(r'^prepas/$', study.views.prepas, name='prepas'),
     
 ]

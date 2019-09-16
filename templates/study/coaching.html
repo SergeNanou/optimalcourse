@@ -24,7 +24,7 @@
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/agency.css' %}"> 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/agency_tic_coach.css' %}"> 
   <!-- Custom styles for this template -->
   
  
@@ -63,7 +63,7 @@
             {% endif %}
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger " href="{% url 'teach' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
+            <a class="nav-link js-scroll-trigger "  href="{% url 'teach' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact"><button type="button" class="btn btn-light btn-sm"><font color="red">Rappel Gratuit </font></button></a>
@@ -73,7 +73,7 @@
                   <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
                   <span class="text">Deconnexion</span>
                   <span class="icon"> <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></span></a>
-            </div>  
+              </div>  
           </li>
         </ul>
       </div>
@@ -84,8 +84,8 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-heading text-uppercase"><font color="Blue">Vous aidez à exceller </font></div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        <div class="intro-heading text-uppercase"><font color="Blue"></font></div>
+        
       </div>
     </div>
   </header>
@@ -95,67 +95,82 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">Apprendre c'est contribuer au progrès de l'humanité</h3>
+          <h2 class="section-heading text-uppercase">Cours particuliers personnalisés</h2>
+          <h3 class="section-subheading text-muted">OptimalCourse, spécialiste de l'accompagnement scolaire et personnalisé</h3>    
         </div>
       </div>
-      <div class="row text-center">
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <a href="{% url 'study' %}"><i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i></a>
-          </span>
-          <h4 class="service-heading">Accompagnement scolaire et universitaire</h4>
-          <p class="text-muted">Stratégie d'accompagnement scolaire personnalisé favorisant la montée en compétence de l'apprenant</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <a href="{% url 'tic' %}"><i class="fa fa-laptop fa-stack-1x fa-inverse"></i></a>
-          </span>
-          <h4 class="service-heading">Formation TIC</h4>
-          <p class="text-muted">Les TIC sont un atout majeur de competivité et d'efficacité des entreprises et des services.</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-book fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Bibliothèque numerique</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Grid -->
-  <section class="bg-light page-section" id="portfolio">
-    <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Forum </h2>
-          <h3 class="section-subheading text-muted">La plateforme de mise en relation éducatif</h3>
+        <div class="col-lg-3 text-center">
+          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">OptimalCourse</div>
+            <div class="card-body">
+              <h5 class="card-title">Proposition 1</h5>
+              <p class="card-text"> Personnel à l’écoute, professeurs compétents,
+                                   ponctuels et pédagogiques, OptimalCourse assure
+                                   un suivi intensif.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1"> </div>
+        <div class="col-lg-3 text-center">
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+              <div class="card-header">OptimalCourse</div>
+                  <div class="card-body">
+                    <h5 class="card-title">Proposition 2</h5>
+                      <p class="card-text">Nos profs établissent
+                                          avec l'élève un véritable
+                                          plan de travail, selon un
+                                          rythme précis et un suivi
+                                          pédagogique régulier.
+                     </p>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-1"> </div>
+        <div class="col-lg-3 text-center">
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+              <div class="card-header">OptimalCourse</div>
+                  <div class="card-body">
+                    <h5 class="card-title">Proposition 3</h5>
+                      <p class="card-text">Nos
+                                           enseignants 
+                                            veillent à
+                                           développer chez leurs
+                                           élèves le sens de
+                                           l’autonomie, le goût de
+                                           l’effort .
+                     </p>
+                </div>
+              </div>
+          </div>
+          
+        </div>
+      <div class="row">
+        <div class="col-lg-12 text-center ">
+          <h3 class="section-subheading  card">Des cours particuliers dans la matière de son choix:
+          <ul><li>Maths</li>
+          <li>Physique</li>
+          <li>Anglais</li>
+          <li>Français</li>
+          <li> Espagnol/Allemand </li>
+          Des cours particuliers pour les niveaux :
+          <li>Collège</li>
+          <li>Lycée</li>
+          <li>Supérieur</li>
+          </h3>    
         </div>
       </div>
-      <div class="row text-center">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-5 col-lg-offset-2" >
-          <div class=" card btn btn-light">
-            <h3 class="btn btn-secondary"><a href="{% url 'read' %}">Forum Annonces</a></h3>
-            <img class="text-center" src="{% static 'img/forum_int_5.jpg' %}" height="250px" width="300px"alt="logo_forum_introduction">
-          </div>  
-        </div>
-        <div class=" col-lg-5 ">
-          <div class=" card btn btn-light">
-            <h3 class="btn btn-secondary"><a href="{% url 'help_ent' %}">Forum Entraide</a></h3>
-            <img class="text-center" src="{% static 'img/forum_int_1.jpg' %}" height="250px" width="300px"alt="logo_forum_introduction">
-          </div>  
-        </div>    
+      
+      <div class="row">
+       <div class="col-lg-12 text-center service-heading">
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#contact">Nous contacter</a>
+       </div>
       </div>
+     
     </div>
+    
   </section>
-
- 
   <!-- Team -->
   <section class="bg-light page-section" id="team">
     <div class="container">

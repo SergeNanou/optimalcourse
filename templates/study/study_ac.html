@@ -24,7 +24,7 @@
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/agency.css' %}"> 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/agency_tic_study.css' %}"> 
   <!-- Custom styles for this template -->
   
  
@@ -63,7 +63,7 @@
             {% endif %}
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger " href="{% url 'teach' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
+            <a class="nav-link js-scroll-trigger "  href="{% url 'teach' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact"><button type="button" class="btn btn-light btn-sm"><font color="red">Rappel Gratuit </font></button></a>
@@ -73,7 +73,7 @@
                   <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
                   <span class="text">Deconnexion</span>
                   <span class="icon"> <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></span></a>
-            </div>  
+              </div>  
           </li>
         </ul>
       </div>
@@ -84,8 +84,8 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-heading text-uppercase"><font color="Blue">Vous aidez à exceller </font></div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        <div class="intro-heading text-uppercase"><font color="Blue"></font></div>
+        
       </div>
     </div>
   </header>
@@ -95,155 +95,86 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">Apprendre c'est contribuer au progrès de l'humanité</h3>
+          <h2 class="section-heading text-uppercase">Coaching scolaire et universitaire</h2>
+          <h3 class="section-subheading text-muted">OptimalCourse, spécialiste de l'accompagnement scolaire personnalisé</h3>  
         </div>
       </div>
-      <div class="row text-center">
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <a href="{% url 'study' %}"><i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i></a>
-          </span>
-          <h4 class="service-heading">Accompagnement scolaire et universitaire</h4>
-          <p class="text-muted">Stratégie d'accompagnement scolaire personnalisé favorisant la montée en compétence de l'apprenant</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <a href="{% url 'tic' %}"><i class="fa fa-laptop fa-stack-1x fa-inverse"></i></a>
-          </span>
-          <h4 class="service-heading">Formation TIC</h4>
-          <p class="text-muted">Les TIC sont un atout majeur de competivité et d'efficacité des entreprises et des services.</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-book fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Bibliothèque numerique</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+     <div class="row">
+      <div class="col-sm-4">
+        <div class="team-member">
+         <img class="mx-auto rounded-circle" src="{% static 'img/cours_par_1.jpg' %}" alt="image_cours_particulier">
+         <a class="nav-link js-scroll-trigger" href="{% url 'coaching' %}"><h4>Cours particuliers personnalisés</h4></a>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="col-sm-4">
+        <div class="team-member">
+         <img class="mx-auto rounded-circle" src="{% static 'img/stage.jpg' %}" alt="image_stages_intensifs">
+         <a class="nav-link js-scroll-trigger" href="{% url 'stage' %}"><h4>Stages intensifs</h4></a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="team-member">
+         <img class="mx-auto rounded-circle" src="{% static 'img/prepas.png' %}" alt="image_prepa">
+         <a class="nav-link js-scroll-trigger" href="{% url 'prepas' %}"><h4>Prépas Examens, Concours et  Grandes Ecoles</h4></a>
+        </div>
+      </div>
 
-  <!-- Portfolio Grid -->
-  <section class="bg-light page-section" id="portfolio">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Forum </h2>
-          <h3 class="section-subheading text-muted">La plateforme de mise en relation éducatif</h3>
-        </div>
-      </div>
-      <div class="row text-center">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-5 col-lg-offset-2" >
-          <div class=" card btn btn-light">
-            <h3 class="btn btn-secondary"><a href="{% url 'read' %}">Forum Annonces</a></h3>
-            <img class="text-center" src="{% static 'img/forum_int_5.jpg' %}" height="250px" width="300px"alt="logo_forum_introduction">
-          </div>  
-        </div>
-        <div class=" col-lg-5 ">
-          <div class=" card btn btn-light">
-            <h3 class="btn btn-secondary"><a href="{% url 'help_ent' %}">Forum Entraide</a></h3>
-            <img class="text-center" src="{% static 'img/forum_int_1.jpg' %}" height="250px" width="300px"alt="logo_forum_introduction">
-          </div>  
-        </div>    
-      </div>
     </div>
+    
   </section>
-
- 
   <!-- Team -->
   <section class="bg-light page-section" id="team">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Notre Equipe</h2>
-          <h3 class="section-subheading text-muted"></h3>
+          <h3 class="section-heading text-uppercase">Cours particuliers chez OptimalCourse</h3>
         </div>
+          <h5 class="section-subheading text-muted"> 
+            Du collège aux études supérieures en passant par
+            le lycée, les enseignants de OptimalCourse, tous
+            spécialistes dans leur domaine proposent des cours
+            de soutien scolaire intensifs et sur mesure, vous
+            donnant l’assurance de voir votre enfant faire des
+            progrès rapidement.
+          </h5>
       </div>
       <div class="row">
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/bayesian.png' %}" alt="">
-            <h4>Yeo TENAN</h4>
-            <p class="text-muted">Enseignant Mathématique Aix Marseille Université(France)</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="col-lg-12 text-center">
+          <h3 class="section-heading text-uppercase">Stages intensifs chez OptimalCourse</h3>
         </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/big_data.jpg' %}" alt="">
-            <h4>Serge NANOU</h4>
-            <p class="text-muted">Developpeur d'Applications Python-BIG DATA(EISTI)</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/crypto.jpg' %}" alt="photo_cryptography">
-            <h4>Yannick ADENI</h4>
-            <p class="text-muted">Ingenieur R&D CRYPTOGRAPHIE(FRANCE)</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+          <h5 class="section-subheading text-muted"> 
+            Consacrer une partie des
+            vacances scolaires à s’entraîner
+            sur des exo types.</br>
+            Aider les élèves à revoir les
+            notions étudiées depuis la
+            rentrée scolaire et aborder en
+            pleine confiance la suite de
+            l’année scolaire
+          </h5>
+        
+      
       <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <p class="large text-muted"></p>
+        <div class="col-lg-12 text-center">
+          <h3 class="section-heading text-uppercase">Prépas Grandes Ecoles, prépas Examens et concours</h3>
         </div>
+      
+          <h5 class="section-subheading text-muted"> 
+            Se préparer à un concours
+            de l’administration, une
+            langue étrangère pour un
+            nouvel emploi et une admission dans une grande école d'ingenieur  demande
+            toujours un plus.
+            OptimalCourse vous
+            propose une solution sur
+            mesure, adaptée aux
+            besoins de chacun.
+          </h5>
+        
       </div>
+      
+      
     </div>
   </section>
 
