@@ -1,11 +1,14 @@
+
+
 from django.shortcuts import render
-from forum.forms import MessageForm, HelpForm
+from forum.forms import MessageForm, HelpForm, HelpAnsForm
 from forum.models import *
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 import datetime
-
+import json
+import ast
 # Create your views here.
 # create a view to publish in forum
 @login_required(login_url='/user_login/')
@@ -42,7 +45,7 @@ def publish(request):
 def read(request):
 
     # take  all messages publishing
-    publish = list(Message.objects.all().order_by ('-created_at__date').values())
+    publish = list(Message.objects.all().order_by ('-created_at').values())
     # for tim in publish:
     #     tim.created_at = tim.created_at.isoformat()
 
@@ -50,7 +53,67 @@ def read(request):
 
 @login_required(login_url='/user_login/')
 def help_ent(request):
-    return render(request,'forum/help_ent.html')
+    # take  all messages publishing
+    resp = []
+    publish_h = list(Quest_ans.objects.all().order_by('-created_at_h').values())
+    for publis in publish_h:
+        a = publis['id']
+        publi = list(Comment.objects.filter(forum_id=a).values())
+        resp.append(publi)
+    return render(request,'forum/help_ent.html', {'publish_h':publish_h}, {'resp':resp})
+
+@login_required(login_url='/user_login/')    
+def help_ent_ans(request):
+    # query = request.POST.get('ques')
+    # query = query.split('+')
+    # message = query[1]
+    # user = query[0]
+    current_user = request.user
+    sauvegarde = False
+    form = HelpAnsForm(request.POST or None)
+    query = request.POST['ques']
+    query = query.split('+')
+    message = query[1]
+    id_pub = query[0]
+    # id_pub = int(str(id_pub))
+
+    # dat = type(id_pub)
+
+    if form.is_valid():
+        answer_0 = form.cleaned_data["reponse"]
+        query = request.POST['ques']
+        query = query.split('+')
+        message = query[1]
+        id_pub = query[0]
+        id_pub = int('0' + query[0])
+        
+        
+        # question = Quest_ans.objects.update_or_create(sujet_h='Demande de stage',
+        #                                               message_h='Bonjour les amis ',
+        #                                               email_h='affoumounanou@yahoo.fr',
+        #                                               phone_h='07451224',
+        #                                               user_h=current_user )
+        comment = Comment(desc=answer_0,
+                      user=current_user, forum_id=id_pub)
+        comment.save()
+        
+
+                
+
+    #     Quest_ans.objects.create_or_update(user_h=user,
+    #                                   message_h=message,
+    #                                  answer_h_0=answer_0)
+        sauvegarde = True
+
+    return render(request,'forum/help_ent_ans.html', {
+        'form': form, 
+        'sauvegarde': sauvegarde,
+        'query': message,
+        'id_pub': id_pub
+    })
+
+    
+
 
 @login_required(login_url='/user_login/')
 def help_ent_publish(request):
@@ -78,6 +141,8 @@ def help_ent_publish(request):
     else:
         form = HelpForm()
     return render(request,'forum/for_ent_pub.html', {'form': form})
+
+
 
 
 

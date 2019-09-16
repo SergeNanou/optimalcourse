@@ -39,5 +39,7 @@ urlpatterns = [
     url(r'^help_ent/$', forum.views.help_ent, name='help_ent'),
     url(r'^help_ent_publish/$', forum.views.help_ent_publish, 
     	name='help_ent_publish'),
-
+    url(r'^help_ent_ans/$', forum.views.help_ent_ans, 
+    	name='help_ent_ans'),
+    
 ]

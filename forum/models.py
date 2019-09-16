@@ -27,18 +27,18 @@ class Quest_ans(models.Model):
     email_h = models.CharField(max_length=30)
     phone_h = models.IntegerField()
     created_at_h = models.DateTimeField(auto_now_add=True)
-    answer_h_0 = models.TextField(max_length=500, blank=True)
-    answer_h_1 = models.TextField(max_length=500, blank=True)
-    answer_h_2 = models.TextField(max_length=500, blank=True)
-    answer_h_3 = models.TextField(max_length=500, blank=True)
     
     class Meta:
         verbose_name = "Message"
 
     def __str__(self):
-        return '{} {} {} {} {} {}'.format(self.user,
-                                          self.sujet,
-                                          self.message,
-                                          self.email,
-                                          self.created_at,
-                                          self.phone)
+        return '{} {} {} {} {}'.format(self.sujet_h,
+                                       self.message_h,
+                                       self.email_h,
+                                       self.created_at_h,
+                                       self.phone_h)
+class Comment(models.Model):
+    user = models.CharField(max_length=30)
+    forum = models.ForeignKey(Quest_ans, on_delete=models.CASCADE)
+    desc = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
