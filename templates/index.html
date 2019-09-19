@@ -47,12 +47,12 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#services"><button type="button" class="btn btn-light btn-sm">Services</button></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio"><button type="button" class="btn btn-light btn-sm">FORUM</button></a>
-          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio"><button type="button" class="btn btn-light btn-sm">BLOG</button></a>
+          </li> -->
           <li class="nav-item">
             {% if user.is_authenticated %}
-              <a class="nav-link js-scroll-trigger" href="">
+              <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
                 <div>
                     <span class="text">compte</span>
                     <span class="icon"><i class="fa fa-user fa-2x" aria-hidden="true" ></i></span>
@@ -64,6 +64,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger " href="{% url 'teach' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger " href="{% url 'test_level' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Tester votre niveau</font></button></a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact"><button type="button" class="btn btn-light btn-sm"><font color="red">Rappel Gratuit </font></button></a>
@@ -103,27 +106,33 @@
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <a href="{% url 'study' %}"><i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i></a>
+            <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Accompagnement scolaire et universitaire</h4>
+          <a href="{% url 'study' %}"><h4 class="service-heading">Coaching scolaire et universitaire</h4></a>
           <p class="text-muted">Stratégie d'accompagnement scolaire personnalisé favorisant la montée en compétence de l'apprenant</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <a href="{% url 'tic' %}"><i class="fa fa-laptop fa-stack-1x fa-inverse"></i></a>
+            <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Formation TIC</h4>
-          <p class="text-muted">Les TIC sont un atout majeur de competivité et d'efficacité des entreprises et des services.</p>
+          <a href="{% url 'tic' %}"><h4 class="service-heading">Formation TIC</h4></a>
+          <p class="text-muted">Les TIC, atout majeur de competivité et d'efficacité des entreprises et des services.</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-book fa-stack-1x fa-inverse"></i>
+            <i class="fa fa-comments fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Bibliothèque numerique</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <a href="{% url 'help_ent' %}"><h4 class="service-heading">Forum</h4></a>
+          <p class="text-muted">La plateforme de mise en relation et d'entraide éducatif</p>
         </div>
+      </div>
+      <div class="row text-center " style="margin-top:30px;">
+        <h5 class="section-subheading text-muted card"> OPTIMALCOURSE est une entreprise spécialisée dans le domaine du soutien scolaire et de l’accompagnement personnalisé.</br> Sa mission principale est de contribuer aux progrès social, culturel et scientifique par l’éducation. </br>
+        Pour assurer ses services, OPTIMALCOURSE se positionne également comme une plate forme de mise en relation entre l’offre et la demande. 
+       </h5>
+
       </div>
     </div>
   </section>
@@ -133,8 +142,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Forum </h2>
-          <h3 class="section-subheading text-muted">La plateforme de mise en relation éducatif</h3>
+          <h2 class="section-heading text-uppercase">Blog </h2>
+          <h3 class="section-subheading text-muted"></h3>
         </div>
       </div>
       <div class="row text-center">

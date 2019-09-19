@@ -60,7 +60,14 @@ def help_ent(request):
         a = publis['id']
         publi = list(Comment.objects.filter(forum_id=a).values())
         resp.append(publi)
-    return render(request,'forum/help_ent.html', {'publish_h':publish_h}, {'resp':resp})
+    return render(request,'forum/help_ent.html', {'publish_h':publish_h})
+
+def read_ans(request):
+    num = request.POST['ques_1']
+    query = list(Comment.objects.filter(forum_id=num).values())
+    query_1 = list(Quest_ans.objects.filter(id=num).values())
+    return render(request,'forum/check_ans.html',{'query':query, 'query_1':query_1})
+
 
 @login_required(login_url='/user_login/')    
 def help_ent_ans(request):

@@ -1,0 +1,16 @@
+{% extends "connect/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron">
+<font color="black"><h2> Sign Up</h2></font>
+<form method="post"><font color="black">
+	{% csrf_token %}
+	<p>Token : {{token}}</p>
+	{{ signupForm.as_p }}
+	<button type="submit" name="button">Register</button></font>
+</form>
+ </div>
+  </div>
+
+{% endblock%}

@@ -29,6 +29,7 @@ from study import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^password/$', connect.views.change_password, name='change_password'),
     url(r'^$', connect.views.index, name='index'),
     url(r'^register/$', connect.views.register, name='register'),
     url(r'^user_login/$', connect.views.user_login, name='user_login'),
@@ -48,5 +49,7 @@ urlpatterns = [
     url(r'^coaching/$', study.views.coaching, name='coaching'),
     url(r'^stage/$', study.views.stage, name='stage'),
     url(r'^prepas/$', study.views.prepas, name='prepas'),
-    
+    url(r'^my_account/$', connect.views.my_account, name='my_account'),
+    url(r'^test_level/$', teach.views.TestLevel, name='test_level'),
+    url(r'^read_ans/$', forum.views.read_ans, name='read_ans'),
 ]

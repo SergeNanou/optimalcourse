@@ -95,44 +95,36 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">FORUM</h2>
-          <h3 class="section-subheading text-muted">OptimalCourse, la plateforme de mise en relation éducative</h3>
-         
-          <a  href="{% url 'help_ent_publish' %}"><h3 class="section-subheading text-muted"><button type="button" class="btn btn-primary">Publier un message</button></a></h4>
-            
-                
-        </div>
-      </div>
-      {% for pub in publish_h %}
-       <div class="row ">
-        <div class="col-lg-4 text-center card btn btn-light ">
-          
-          <h4 class="btn btn-secondary">Sujet: {{pub.sujet_h}}</h4>
-          {{pub.created_at_h}}
-          <h6> Contact : <span class="btn btn-secondary"> {{pub.phone_h}}</h6>
-          
-        </div>
-        <div class="col-lg-8 text-center card btn btn-light">
-          
-          <h4 class="btn btn-secondary">Message</h4>
-          {{pub.message_h}}
-          <form action="{% url 'read_ans' %}" method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="ques_1" value="{{pub.id}}">
-            <h6 class="section-subheading text-muted" style="margin-top: 25px"><button  type="submit" class="btn btn-primary btn-sm">Voir les reponses</button></h3>
-          </form>
-        </div>
-      </div>
-      <div class="row " style="margin-top: 20px">
-        <div class="col-lg-12 text-center">
-          <form action="{% url 'help_ent_ans' %}" method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="ques" value="{{pub.id}}+{{pub.message_h}}">
-            <h3 class="section-subheading text-muted"><button  type="submit" class="btn btn-primary">Repondre</button></h3>
-          </form>
+          <h2 class="section-heading text-uppercase">TESTEZ VOTRE NIVEAU</h2>
+          <h3 class="section-subheading text-muted">Plus que trois étapes:</h3>
         </div>  
       </div>
-     {% endfor %}
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="{% static 'img/test_1.jpg' %}" alt="image_test_write">
+            <h4>Etape 1</h4>
+            <p class="text-muted">Remplissez le formulaire</p>
+            
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="{% static 'img/test_2.jpg' %}" alt="image_test_evaluation">
+            <h4>Etape 2</h4>
+            <p class="text-muted">Realisez le test personnalisé</p>
+            
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="{% static 'img/test_3.png' %}" alt="image_test_conclusion">
+            <h4>Etape 3</h4>
+            <p class="text-muted">Analyse et diagnostic</p>
+            
+          </div>
+        </div>
+      </div>
     </div>
     
   </section>
@@ -141,84 +133,33 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Notre Equipe</h2>
-          <h3 class="section-subheading text-muted"></h3>
+          <h2 class="section-heading text-uppercase">Etape 1</h2>
+          <div class="card">
+            <h3 class="section-subheading ">Cette étape consiste à remplir le formulaire suivant:</h3>
+            <h6> {% if sauvegarde %}
+               <p>Vos informations ont été bien enregistré.Vous serez contacté par email pour la suite du processus(Etape 2 et 3).
+               </p>
+              {% endif %}
+              <p>
+                 <form method="post" action="{% url 'test_level' %}" >
+                   {% csrf_token %}
+                   {{ form.as_p }}
+                   
+                   <h3 class="section-subheading text-muted"><button  type="submit" class="btn btn-primary">Publier</button></h3>
+                 </form>
+              </p></h6>
+          </div>    
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/bayesian.png' %}" alt="">
-            <h4>Yeo TENAN</h4>
-            <p class="text-muted">Enseignant Mathématique Aix Marseille Université(France)</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/big_data.jpg' %}" alt="">
-            <h4>Serge NANOU</h4>
-            <p class="text-muted">Developpeur d'Applications Python-BIG DATA(EISTI)</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/crypto.jpg' %}" alt="photo_cryptography">
-            <h4>Yannick ADENI</h4>
-            <p class="text-muted">Ingenieur R&D CRYPTOGRAPHIE(FRANCE)</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Etape 2 & 3</h2>
+            <h3 class="section-subheading card ">Ces étapes correspondent aux étapes de realisations du test et d'analyses des réponses du test.</br>
+            Elle consiste à permettre à l'apprennant de connaitre les notions non comprises du programme et les solutions pour y remedier</h3>  
+            <img src="{% static 'img/communication.png' %}"  alt="logo_communication"></a>
         </div>
       </div>
+      
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
           <p class="large text-muted"></p>
