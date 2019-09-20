@@ -11,3 +11,5 @@ class StudentTest(models.Model):
     email = models.CharField(max_length=30)
     phone = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
+    second_process = models.BinaryField(null=True)
+    test_analyse =  models.TextField(null=True)

@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
-
+from forum.models import *
 
 
 # Create your views here.
@@ -21,8 +21,12 @@ def index(request):
     return render(request,'index.html')
 def connexion(request):
     return render(request,'connect/connexion.html')
+
+@login_required(login_url='/user_login/')
 def my_account(request):
-    return render(request,'connect/my_account.html')
+    current_user = request.user
+    query_1 = list(Quest_ans.objects.filter(user_h=current_user).values())
+    return render(request,'connect/my_account.html', {'query_1':query_1})
 @login_required
 def special(request):
     return HttpResponse("You are logged in !")

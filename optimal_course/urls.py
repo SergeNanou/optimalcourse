@@ -21,11 +21,13 @@ import tic
 import forum
 import teach
 import study
+import blog
 from connect import views
 from tic import views
 from forum import views
 from teach import views
 from study import views
+from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -52,4 +54,5 @@ urlpatterns = [
     url(r'^my_account/$', connect.views.my_account, name='my_account'),
     url(r'^test_level/$', teach.views.TestLevel, name='test_level'),
     url(r'^read_ans/$', forum.views.read_ans, name='read_ans'),
+    url(r'^edit/$', blog.views.edit, name='edit'),
 ]

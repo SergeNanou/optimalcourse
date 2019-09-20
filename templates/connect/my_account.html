@@ -24,7 +24,7 @@
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/agency.css' %}"> 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/agency_tic.css' %}"> 
   <!-- Custom styles for this template -->
   
  
@@ -32,6 +32,7 @@
 
 <body id="page-top">
 
+  <!-- Navigation -->
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container bg-dark">
@@ -47,12 +48,23 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#services"><button type="button" class="btn btn-light btn-sm">Services</button></a>
           </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio"><button type="button" class="btn btn-light btn-sm">BLOG</button></a>
+          </li> -->
+          
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio"><button type="button" class="btn btn-light btn-sm">FORUM</button></a>
+            <a class="nav-link js-scroll-trigger " href="{% url 'teach' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger " href="{% url 'test_level' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Tester votre niveau</font></button></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact"><button type="button" class="btn btn-light btn-sm"><font color="red">Rappel Gratuit </font></button></a>
           </li>
           <li class="nav-item">
             {% if user.is_authenticated %}
-              <a class="nav-link js-scroll-trigger" href="">
+              <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
                 <div>
                     <span class="text">compte</span>
                     <span class="icon"><i class="fa fa-user fa-2x" aria-hidden="true" ></i></span>
@@ -63,22 +75,17 @@
             {% endif %}
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger "  href="{% url 'teach' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">Devenir Enseignant</font></button></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact"><button type="button" class="btn btn-light btn-sm"><font color="red">Rappel Gratuit </font></button></a>
-          </li>
-          <li class="nav-item">
             <div>
-                  <a class="nav-link js-scroll-trigger" href="">
+                  <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
                   <span class="text">Deconnexion</span>
                   <span class="icon"> <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></span></a>
-              </div>  
+            </div>  
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
 
   <!-- Header -->
   <header class="masthead">
@@ -115,136 +122,36 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">Mes Messages</h2>
+          <h3 class="section-subheading text-muted"></h3>
         </div>
       </div>
-      <div class="row text-center">
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Accompagnement scolaire et universitaire</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+      {% for pub in query_1 %}
+       <div class="row ">
+        <div class="col-lg-4 text-center card btn btn-light ">
+          
+          <h4 class="btn btn-secondary">Sujet: {{pub.sujet_h}}</h4>
+          {{pub.created_at_h}}
+          
+          
         </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Formation TIC</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-book fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Bibliothèque numerique</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        <div class="col-lg-8 text-center card btn btn-light">
+          
+          <h4 class="btn btn-secondary">Message</h4>
+          {{pub.message_h}}
+          <form action="{% url 'read_ans' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="ques_1" value="{{pub.id}}">
+            <h6 class="section-subheading text-muted" style="margin-top: 25px"><button  type="submit" class="btn btn-primary btn-sm">Voir les reponses</button></h3>
+          </form>
         </div>
       </div>
+      {% endfor %}
     </div>
   </section>
 
   <!-- Portfolio Grid -->
-  <section class="bg-light page-section" id="portfolio">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Forum</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Threads</h4>
-            <p class="text-muted">Illustration</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Explore</h4>
-            <p class="text-muted">Graphic Design</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Finish</h4>
-            <p class="text-muted">Identity</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Lines</h4>
-            <p class="text-muted">Branding</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Southwest</h4>
-            <p class="text-muted">Website Design</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Window</h4>
-            <p class="text-muted">Photography</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Team -->
   <section class="bg-light page-section" id="team">
@@ -252,7 +159,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Notre Equipe</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h3 class="section-subheading text-muted"></h3>
         </div>
       </div>
       <div class="row">
