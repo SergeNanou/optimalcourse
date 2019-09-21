@@ -37,7 +37,7 @@
  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
    <div class="container bg-dark">
      
-     <a href="{% url 'index' %}"><img src="{% static 'img/cahier.png' %}" height="30px" width="30px" alt="logo_optimal_course"></a>
+     <a href="{% url 'index' %}"><img src="{% static 'img/books.jpg' %}" height="40px" width="40px" alt="logo_optimal_course"></a>
      <a class="navbar-brand js-scroll-trigger" href="#page-top">OptimalCourse</a>
      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
        Menu
@@ -46,7 +46,19 @@
      <div class="collapse navbar-collapse" id="navbarResponsive">
        <ul class="navbar-nav text-uppercase ml-auto">
          <li class="nav-item">
-           <a class="nav-link js-scroll-trigger" href="#services"><button type="button" class="btn btn-light btn-sm">Services</button></a>
+           <div class="dropdown nav-link js-scroll-trigger">
+           <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+           Services
+           <span class="caret"></span>
+           </button>
+           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+           <li><a href="{% url 'study' %}" title="Coaching scolaire">Cours</a></li>
+           <li><a href="{% url 'tic' %}" title="Formation TIC">Formation TIC</a></li>
+           <li><a href="{% url 'help_ent' %}"  title="Forum">Forum</a></li>
+           
+           </ul>
+           </div>
+           <!-- <a class="nav-link js-scroll-trigger" href="#services"><button type="button" class="btn btn-light btn-sm">Services</button></a> -->
          </li>
          <!-- <li class="nav-item">
            <a class="nav-link js-scroll-trigger" href="#portfolio"><button type="button" class="btn btn-light btn-sm">BLOG</button></a>
@@ -67,7 +79,7 @@
              <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
                <div>
                    <span class="text">compte</span>
-                   <span class="icon"><i class="fa fa-user fa-2x" aria-hidden="true" ></i></span>
+                   <span class="icon"><i class="fa fa-user fa-2x" aria-hidden="true" title="Mon compte"></i></span>
                </div>
                </a>
            {% else %}
@@ -78,14 +90,13 @@
            <div>
                  <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
                  <span class="text">Deconnexion</span>
-                 <span class="icon"> <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></span></a>
+                 <span class="icon"> <i class="fa fa-sign-out fa-2x" aria-hidden="true" title="Deconnexion"></i></span></a>
            </div>  
          </li>
        </ul>
      </div>
    </div>
  </nav>
-
   <!-- Header -->
   <header class="masthead">
     <div class="container">

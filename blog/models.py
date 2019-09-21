@@ -9,6 +9,7 @@ class Article(models.Model):
     contenu = models.TextField(null=True)
     date = models.DateTimeField(default=timezone.now, 
                                 verbose_name="Date de parution")
+    photo = models.ImageField(upload_to='blog')
     
     class Meta:
         verbose_name = "article"

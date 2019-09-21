@@ -12,13 +12,22 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from forum.models import *
+from blog.models import *
 
 
 # Create your views here.
 # Views for connex page.
 def index(request):
-
-    return render(request,'index.html')
+    publis = list(Article.objects.all().values())
+    publish = publis[0]['photo']
+    publish = '/media/'+publish
+    contenu = publis[0]['contenu']
+    text = contenu[0:225]
+    titre = publis[0]['titre']
+    return render(request,'index.html',{'publish':publish,
+                                        'contenu':contenu, 
+                                        'titre':titre,
+                                        'text':text})
 def connexion(request):
     return render(request,'connect/connexion.html')
 

@@ -28,6 +28,9 @@ from forum import views
 from teach import views
 from study import views
 from blog import views
+from . import  settings
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -56,3 +59,5 @@ urlpatterns = [
     url(r'^read_ans/$', forum.views.read_ans, name='read_ans'),
     url(r'^edit/$', blog.views.edit, name='edit'),
 ]
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

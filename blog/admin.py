@@ -7,19 +7,19 @@ from blog.models import  Article
 class ArticleAdmin(admin.ModelAdmin):
 
     # Configuration de la liste d'articles
-    list_display   = ('titre', 'auteur', 'date')
+    list_display   = ('titre', 'auteur', 'date', 'photo')
     list_filter    = ('auteur', )
     date_hierarchy = 'date'
     ordering       = ('date', )
     search_fields  = ('titre', 'contenu')
-    prepopulated_fields = {'slug': ('titre', ), }
+
 
     # Configuration du formulaire d'édition
     fieldsets = (
         # Fieldset 1 : meta-info (titre, auteur…)
        ('Général', {
             'classes': ['collapse', ],
-            'fields': ('titre', 'auteur')
+            'fields': ('titre', 'auteur','photo')
         }),
         # Fieldset 2 : contenu de l'article
         ('Contenu de l\'article', {

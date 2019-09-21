@@ -168,12 +168,14 @@
       <div class="row text-center">
         <div class="col-lg-4" >
           <div class=" card btn btn-light">
-            <img class="text-center" src="{% static 'img/forum_int_5.jpg' %}" height="250px" width="300px"alt="logo_forum_introduction">
+            <img class="text-center" src="{{publish}}" height="200px" width="300px"alt="logo_forum_introduction">
           </div>  
         </div>
         <div class=" col-lg-8 ">
           <div class=" card btn btn-light">
-           <a class="nav-link js-scroll-trigger " href="{% url 'edit' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">blog</font></button></a>
+           <h3 class=" text-muted">{{titre}}</h3> 
+           <p> {% autoescape off %}{{text}} {% endautoescape %}</p>
+           <a class="nav-link js-scroll-trigger " href="{% url 'edit' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">voir la suite</font></button></a>
           </div>  
         </div>    
       </div>
