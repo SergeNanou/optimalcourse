@@ -6,7 +6,7 @@ Ce projet devellope un site web dont l'objectif principal est d'être le pilier 
 
 -Backend: Python(Framework Django)
 # Applications Django crées
-Decoupage des fonctionnalités en applications Django
+Decoupage des fonctionnalités en applications Django.Chaque applicaton correspond à une grande fonctionnalité du site.
 
 -Blog
 
@@ -18,6 +18,6 @@ Decoupage des fonctionnalités en applications Django
 
 -study
 
-Chaque applicaton correspond à une grande fonctionnalité du site.
+
 
 # Deploiement du site
