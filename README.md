@@ -5,3 +5,19 @@ Ce projet devellope un site web dont l'objectif principal est d'être le pilier 
 -Frontend: Html, Css, Boostrap, Javascript
 
 -Backend: Python(Framework Django)
+# Applications Django crées
+Decoupage des fonctionnalités en applications Django
+
+-Blog
+
+-tic
+
+-Forum
+
+-Teach
+
+-study
+
+Chaque applicaton correspond à une grande fonctionnalité du site.
+
+# Deploiement du site
