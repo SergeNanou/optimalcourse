@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from blog.models import *
 
 # Create your views here.
 def edit(request):
-	return render(request, 'blog/base.html')
+	publish = list(Article.objects.all().order_by ('-date').values())
+	publish = publish[0]
+	publish['photo'] = '/media/'+publish['photo']
+	return render(request, 'blog/base.html', {'publish':publish})

@@ -24,7 +24,7 @@
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/agency_tic_coach.css' %}"> 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/agency_blog.css' %}"> 
   <!-- Custom styles for this template -->
   
  
@@ -103,9 +103,23 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-heading text-uppercase"><font color="Blue"></font></div>
+        <div class="row ">
+          <div class ="col-lg-5" style="left:13px">
+           <h4 class="text-uppercase text-white font-weight-bold"> </h4>
+          </div>
+          <div class ="col-lg-5" style="left:5px">
+           <h4 class="text-uppercase text-white font-weight-bold"> 
+            
+              
+           </h4>
+          </div>
+         </div>
+          
+
+          <p class="text-white-75 font-weight-light mb-5">
+            
+          </p>  
         
-      </div>
     </div>
   </header>
 
@@ -114,97 +128,35 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Cours particuliers personnalisés</h2>
-          <h3 class="section-subheading text-muted">OptimalCourse, spécialiste de l'accompagnement scolaire et personnalisé</h3>    
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-3 text-center">
-          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-            <div class="card-header">OptimalCourse</div>
-            <div class="card-body">
-              <h5 class="card-title">Proposition 1</h5>
-              <p class="card-text"> Personnel à l’écoute, professeurs compétents,
-                                   ponctuels et pédagogiques, OptimalCourse assure
-                                   un suivi intensif.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-1"> </div>
-        <div class="col-lg-3 text-center">
-            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-              <div class="card-header">OptimalCourse</div>
-                  <div class="card-body">
-                    <h5 class="card-title">Proposition 2</h5>
-                      <p class="card-text">Nos profs établissent
-                                          avec l'élève un véritable
-                                          plan de travail, selon un
-                                          rythme précis et un suivi
-                                          pédagogique régulier.
-                     </p>
-                </div>
-              </div>
-        </div>
-        <div class="col-lg-1"> </div>
-        <div class="col-lg-3 text-center">
-            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-              <div class="card-header">OptimalCourse</div>
-                  <div class="card-body">
-                    <h5 class="card-title">Proposition 3</h5>
-                      <p class="card-text">Nos
-                                           enseignants 
-                                            veillent à
-                                           développer chez leurs
-                                           élèves le sens de
-                                           l’autonomie, le goût de
-                                           l’effort .
-                     </p>
-                </div>
-              </div>
-          </div>
-          
-        </div>
-      <div class="row">
-        <div class="col-lg-12 text-center ">
-          <h3 class="section-subheading" style="margin-top: 20px">Des cours particuliers dans la matière de son choix:
-          <ul ><li class="list-group-item">Maths</li>
-          <li class="list-group-item">Physique</li>
-          <li class="list-group-item">Anglais</li>
-          <li class="list-group-item">Français</li>
-          <li class="list-group-item"> Espagnol/Allemand </li></ul>
-          Des cours particuliers pour les niveaux :
-          <ul ><li class="list-group-item">Collège</li>
-          <li class="list-group-item">Lycée</li>
-          <li class="list-group-item">Supérieur</li></ul>
-          </h3>    
+          <h2 class="section-heading text-uppercase">
+          </h2>
+          {% block body_block %}
+          {% endblock %}
+          <p class="section-subheading text-muted"></p>
         </div>
       </div>
       
-      <div class="row">
-       <div class="col-lg-12 text-center service-heading">
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'contact' %}">Nous contacter</a>
-       </div>
       </div>
-     
     </div>
-    
   </section>
+
+  <!-- Portfolio Grid -->
+  
   <!-- Team -->
   <section class="bg-light page-section" id="team">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Notre Equipe</h2>
-          <h3 class="section-subheading text-muted"></h3>
+          
         </div>
       </div>
       <div class="row">
         <div class="col-sm-4">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/bayesian.png' %}" alt="">
+            <img class="mx-auto rounded-circle" src="" alt="">
             <h4>Yeo TENAN</h4>
-            <p class="text-muted">Enseignant Mathématique Aix Marseille Université(France)</p>
+            <p class="text-muted">Enseignant  Aix Marseille Université(France)</p>
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
                 <a href="#">
@@ -226,7 +178,7 @@
         </div>
         <div class="col-sm-4">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/big_data.jpg' %}" alt="">
+            <img class="mx-auto rounded-circle" src="" alt="">
             <h4>Serge NANOU</h4>
             <p class="text-muted">Developpeur d'Applications Python-BIG DATA(EISTI)</p>
             <ul class="list-inline social-buttons">
@@ -250,7 +202,7 @@
         </div>
         <div class="col-sm-4">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/crypto.jpg' %}" alt="photo_cryptography">
+            <img class="mx-auto rounded-circle" src="" alt="">
             <h4>Yannick ADENI</h4>
             <p class="text-muted">Ingenieur R&D CRYPTOGRAPHIE(FRANCE)</p>
             <ul class="list-inline social-buttons">
@@ -275,7 +227,7 @@
       </div>
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
-          <p class="large text-muted"></p>
+          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
         </div>
       </div>
     </div>
@@ -380,6 +332,7 @@
       </div>
     </div>
   </footer>
+
 
  
 

@@ -22,20 +22,27 @@ import forum
 import teach
 import study
 import blog
+import contact
 from connect import views
 from tic import views
 from forum import views
 from teach import views
 from study import views
 from blog import views
+from contact import views
 from . import  settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^password/$', connect.views.change_password, name='change_password'),
+    url(r'^password/$', connect.views.change_password,
+        name='change_password'),
+    url(r'^legal/$', contact.views.legal,
+        name='legal'),
+    
     url(r'^$', connect.views.index, name='index'),
+    url(r'^contact/$', contact.views.contact, name='contact'),
     url(r'^register/$', connect.views.register, name='register'),
     url(r'^user_login/$', connect.views.user_login, name='user_login'),
     url(r'^connexion/$', connect.views.connexion, name='connexion'),
@@ -46,11 +53,11 @@ urlpatterns = [
     url(r'^teach/$', teach.views.teach, name='teach'),
     url(r'^help_ent/$', forum.views.help_ent, name='help_ent'),
     url(r'^help_ent_publish/$', forum.views.help_ent_publish, 
-    	name='help_ent_publish'),
+        name='help_ent_publish'),
     url(r'^help_ent_ans/$', forum.views.help_ent_ans, 
-    	name='help_ent_ans'),
+        name='help_ent_ans'),
     url(r'^study/$', study.views.study, 
-    	name='study'),
+        name='study'),
     url(r'^coaching/$', study.views.coaching, name='coaching'),
     url(r'^stage/$', study.views.stage, name='stage'),
     url(r'^prepas/$', study.views.prepas, name='prepas'),

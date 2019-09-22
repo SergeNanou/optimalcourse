@@ -71,10 +71,7 @@ def read_ans(request):
 
 @login_required(login_url='/user_login/')    
 def help_ent_ans(request):
-    # query = request.POST.get('ques')
-    # query = query.split('+')
-    # message = query[1]
-    # user = query[0]
+    
     current_user = request.user
     sauvegarde = False
     form = HelpAnsForm(request.POST or None)
@@ -82,10 +79,7 @@ def help_ent_ans(request):
     query = query.split('+')
     message = query[1]
     id_pub = query[0]
-    # id_pub = int(str(id_pub))
-
-    # dat = type(id_pub)
-
+    
     if form.is_valid():
         answer_0 = form.cleaned_data["reponse"]
         query = request.POST['ques']
@@ -94,22 +88,9 @@ def help_ent_ans(request):
         id_pub = query[0]
         id_pub = int('0' + query[0])
         
-        
-        # question = Quest_ans.objects.update_or_create(sujet_h='Demande de stage',
-        #                                               message_h='Bonjour les amis ',
-        #                                               email_h='affoumounanou@yahoo.fr',
-        #                                               phone_h='07451224',
-        #                                               user_h=current_user )
         comment = Comment(desc=answer_0,
                       user=current_user, forum_id=id_pub)
         comment.save()
-        
-
-                
-
-    #     Quest_ans.objects.create_or_update(user_h=user,
-    #                                   message_h=message,
-    #                                  answer_h_0=answer_0)
         sauvegarde = True
 
     return render(request,'forum/help_ent_ans.html', {
@@ -119,15 +100,13 @@ def help_ent_ans(request):
         'id_pub': id_pub
     })
 
-    
-
 
 @login_required(login_url='/user_login/')
 def help_ent_publish(request):
     # variable initiliazation
     sauvegarde = False
     current_user = request.user
-        # if this is a POST request we need to process the form data
+    # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = HelpForm(request.POST)

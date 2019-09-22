@@ -43,7 +43,7 @@ def special(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('user_login'))
 # Views for register user.
 def register(request):
     registered = False
