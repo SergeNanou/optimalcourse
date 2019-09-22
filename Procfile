@@ -1,1 +1,1 @@
-web: gunicorn amateurs_nutella.wsgi
+web: gunicorn optimal_course.wsgi
