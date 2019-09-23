@@ -21,3 +21,4 @@ Decoupage des fonctionnalités en applications Django.Chaque applicaton correspo
 
 
 # Deploiement du site
+https://demo-optimal.herokuapp.com/
