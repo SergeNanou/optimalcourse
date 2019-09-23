@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from connect.forms import UserForm
-# from connect.forms import ProfileForm
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
@@ -35,6 +35,20 @@ def connexion(request):
 def my_account(request):
     current_user = request.user
     query_1 = list(Quest_ans.objects.filter(user_h=current_user).values())
+    # Slice pages
+    paginator = Paginator(query_1, 4)
+    # Get current page number
+    page = request.GET.get('page')
+    try:
+        # Return only this page albums and not others
+        query_1 = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        query_1 = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range,
+        # deliver last page of results.
+        query_1 = paginator.page(paginator.num_pages)
     return render(request,'connect/my_account.html', {'query_1':query_1})
 @login_required
 def special(request):

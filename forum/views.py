@@ -1,11 +1,13 @@
 
-
+from django.urls import reverse
 from django.shortcuts import render
 from forum.forms import MessageForm, HelpForm, HelpAnsForm
 from forum.models import *
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 import datetime
 import json
 import ast
@@ -56,10 +58,21 @@ def help_ent(request):
     # take  all messages publishing
     resp = []
     publish_h = list(Quest_ans.objects.all().order_by('-created_at_h').values())
-    for publis in publish_h:
-        a = publis['id']
-        publi = list(Comment.objects.filter(forum_id=a).values())
-        resp.append(publi)
+    # Slice pages
+    paginator = Paginator(publish_h, 4)
+    # Get current page number
+    page = request.GET.get('page')
+    try:
+        # Return only this page albums and not others
+        publish_h = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        publish_h = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range,
+        # deliver last page of results.
+        publish_h = paginator.page(paginator.num_pages)
+    
     return render(request,'forum/help_ent.html', {'publish_h':publish_h})
 
 def read_ans(request):
@@ -122,6 +135,7 @@ def help_ent_publish(request):
                                      message_h=message,
                                      email_h=email,
                                      phone_h=phone)
+            return HttpResponseRedirect(reverse('help_ent')) 
         return render(request,'forum/help_ent.html', {sauvegarde:'sauvegarde'})
     # if a GET (or any other method) we'll create a blank form
     else:

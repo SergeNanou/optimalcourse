@@ -162,39 +162,20 @@
     </div>
   </section>
 
-  <!-- Portfolio Grid -->
-  
+  {% if query_1.has_other_pages %}
+    <nav aria-label="Page navigation conatiner">
+      <ul class="pagination justify-content-center">
+        {% if query_1.has_previous %}
+          <li><a href="?page={{ query_1.previous_page_number }}" class="page-link">&laquo; PRECEDENT </a></li>
+        {% endif %}
+        {% if query_1.has_next %}
+          <li><a href="?page={{ query_1.next_page_number }}" class="page-link"> SUIVANT &raquo;</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
 
-  <!-- Team -->
   
-
-  <!-- Clients -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Contact -->
   <section class="page-section" id="contact">
