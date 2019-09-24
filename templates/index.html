@@ -26,10 +26,10 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="{% static 'css/agency.css' %}"> 
   <!-- Custom styles for this template -->
-  <!-- Start of  Zendesk Widget script -->
-  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=b2321d16-6264-40a8-8ed0-ddd2dacef9cb"> </script>
-  <!-- End of  Zendesk Widget script -->
+  <style>
+  
  
+  </style>
 </head>
 
 <body id="page-top">
@@ -275,33 +275,7 @@
   </section>
 
   <!-- Clients -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  
   <!-- Contact -->
   <section class="page-section" id="contact">
     <div class="container">
@@ -339,7 +313,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-4">
-          <span class="copyright"></span>
+          <span class="copyright"> <a  href="{% url 'legal' %}">Mentions legales</a></span>
         </div>
         <div class="col-md-4">
           <ul class="list-inline social-buttons">
@@ -363,7 +337,7 @@
         <div class="col-md-4">
           <ul class="list-inline quicklinks">
             <li class="list-inline-item">
-              <a  href="{% url 'legal' %}">Mentions legales</a>
+              
             </li>
             <li class="list-inline-item">
               <a href="#"></a>
@@ -372,13 +346,32 @@
         </div>
       </div>
     </div>
+    
   </footer>
+  <button class="open-button" onclick="openForm()"> <h6 class="panel-title"><span class="fa fa-comments"></span> Chat - Optimal</h6></button>
+
+  <div class="chat-popup" id="myForm">
+    <form id = "newChatForm" class="form-container">
+      
+      <h6 class="card text-center btn btn-secondary"> OptimalCourseChat </h6>
+      <p class="card"><img src="{% static 'img/books.jpg' %}" height="20px" width="20px" alt="logo_optimal_course"> Hello je suis Serge d'OptimalCourse comment pourrais-je vous aider ?<p>
+      <div id="output"></div>
+      <p class = "card" id="loading">Merci, j'ai bien pris en considération votre demande, appelez le 06 69 48 54 02 pour trouver une reponse optimale à votre recherche.</p>
+      <label for="msg"><b>Message</b></label>
+      <textarea type="text" id ="pubchat" placeholder="Type message.." name="msg" required></textarea>
+
+      <button type="submit" class="btn">Send</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+  
+
 
  
 
   <!-- Bootstrap core JavaScript -->
   
-  <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'vendor/jquery/jquery.js'%}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   <!-- Plugin JavaScript -->
@@ -387,10 +380,60 @@
   <!-- Contact form JavaScript -->
   <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
   <script src="{% static 'js/contact_me.js' %}"></script>
+ 
+
 
   <!-- Custom scripts for this template -->
-  <script src="{% static 'js/agency.min.js' %}"></script>
+  <script src="{% static 'js/agency.js' %}"></script>
+  <script type="text/javascript">
 
+    /*var sound = document.createElement('audio')
+    sound.id = 'audio'
+    sound.controls = 'controls'
+    sound.src = 'https://www.youtube.com/watch?v=MwTcBIqkrsI'
+    sound.type = 'audio/mp3'
+    document.body.appendChild(sound)
+
+    function playAudio() {
+      document.getElementById('audio').play();
+    }
+
+    setTimeout("playAudio()", 3000);*/
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+   $(document).ready(function() {
+      function showLoading() {
+        $("#loading").show();
+      }
+
+      function hideLoading() {
+        $("#loading").hide();
+      }
+
+    hideLoading();
+    $(function(){
+     var $newChat = $('#newChatForm');
+     
+     var $newChatForm = $('#newChatForm')
+     $newChatForm.on('submit', function(e){
+      e.preventDefault();
+      var newText = $('#pubchat').val();
+      $('#output').text(newText).show();
+      $('#output').addClass('card text-center btn btn-secondary')
+      
+      $('#pubchat').val('');
+      showLoading();
+     })
+  })
+  
+  })
+  </script>
+  
 </body>
 
 </html>

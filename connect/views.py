@@ -9,7 +9,7 @@ from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth import update_session_auth_hash
+
 from django.contrib.auth.forms import PasswordChangeForm
 from forum.models import *
 from blog.models import *
@@ -50,14 +50,12 @@ def my_account(request):
         # deliver last page of results.
         query_1 = paginator.page(paginator.num_pages)
     return render(request,'connect/my_account.html', {'query_1':query_1})
-@login_required
-def special(request):
-    return HttpResponse("You are logged in !")
+
 # Views for deconnect user.
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('user_login'))
+    return HttpResponseRedirect(reverse('index'))
 # Views for register user.
 def register(request):
     registered = False
