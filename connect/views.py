@@ -56,6 +56,7 @@ def my_account(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+
 # Views for register user.
 def register(request):
     registered = False
@@ -98,7 +99,7 @@ def user_login(request):
     else:
         return render(request, 'connect/login.html', {})
 
-
+# Views for change password
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)

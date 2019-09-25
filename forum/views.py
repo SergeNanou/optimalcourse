@@ -53,6 +53,7 @@ import ast
 
 #     return render(request,'forum/ind_tic_r.html', {'publish':publish})
 
+# views for publish all messages
 @login_required(login_url='/user_login/')
 def help_ent(request):
     # take  all messages publishing
@@ -75,13 +76,14 @@ def help_ent(request):
     
     return render(request,'forum/help_ent.html', {'publish_h':publish_h})
 
+# Views for check answer of question
 def read_ans(request):
     num = request.POST['ques_1']
     query = list(Comment.objects.filter(forum_id=num).values())
     query_1 = list(Quest_ans.objects.filter(id=num).values())
     return render(request,'forum/check_ans.html',{'query':query, 'query_1':query_1})
 
-
+# Views for give a answer of question
 @login_required(login_url='/user_login/')    
 def help_ent_ans(request):
     

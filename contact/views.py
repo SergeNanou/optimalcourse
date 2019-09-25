@@ -5,9 +5,11 @@ from django.http import HttpResponseRedirect
 from .models import ContLead
 
 
-# Create your views here.
+# views create for legal mentions page.
 def legal(request):
 	return render(request, 'legal_ment.html')
+
+# views create for contact form
 def contact(request):
     submitted = False
     if request.method == 'POST':

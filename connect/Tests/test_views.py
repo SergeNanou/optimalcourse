@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from blog.models import *
 
 
-
 # test for LoginTest page  
 class LogInTest(TestCase):
     # setup test
@@ -21,6 +20,7 @@ class LogInTest(TestCase):
                                     self.credentials, follow=True)
         self.assertEqual(response.status_code, 200)
     def test_index(self):
+        # setup of text
         p = Article.objects.create(titre='La vie de boss', 
                                    auteur='Adonis',
                                    contenu ='La vie est chic à Cergy'
