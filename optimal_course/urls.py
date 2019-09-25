@@ -30,19 +30,39 @@ from teach import views
 from study import views
 from blog import views
 from contact import views
+
 from . import  settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('forum/', include('forum.urls')),
-    path('connect/', include('connect.urls')),
-    path('contact/', include('contact.urls')),
-    path('study/', include('study.urls')),
-    path('teach/', include('teach.urls')),
-    path('tic/', include('tic.urls')),
-    path('blog/', include('blog.urls')),
+    url(r'^edit/$',blog.views.edit, name='edit'),
+    url(r'^password/$',connect.views.change_password,
+        name='change_password'),
+    
+    url(r'^$', connect.views.index, name='index'),
+    url(r'^register/$', connect.views.register, name='register'),
+    url(r'^user_login/$', connect.views.user_login, name='user_login'),
+    url(r'^connexion/$', connect.views.connexion, name='connexion'),
+    url(r'^user_logout/$', connect.views.user_logout, name='logout'),
+    url(r'^my_account/$', connect.views.my_account, name='my_account'),
+     url(r'^contact/$', contact.views.contact, name='contact'),
+    url(r'^legal/$', contact.views.legal, name='legal'),
+    url(r'^help_ent/$', forum.views.help_ent, name='help_ent'),
+    url(r'^help_ent_publish/$', forum.views.help_ent_publish, 
+        name='help_ent_publish'),
+    url(r'^help_ent_ans/$', forum.views.help_ent_ans, 
+        name='help_ent_ans'),
+    url(r'^read_ans/$', forum.views.read_ans, name='read_ans'),
+    url(r'^study/$', study.views.study, 
+        name='study'),
+    url(r'^coaching/$', study.views.coaching, name='coaching'),
+    url(r'^stage/$', study.views.stage, name='stage'),
+    url(r'^prepas/$', study.views.prepas, name='prepas'),
+    url(r'^teach/$', teach.views.teach, name='teach'),
+    url(r'^test_level/$', teach.views.TestLevel, name='test_level'),
+    url(r'^tic/$', tic.views.tic, name='tic'),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
