@@ -388,7 +388,22 @@
      </div>
    </div>
  </footer>
+ <button class="open-button" onclick="openForm()"> <h6 class="panel-title"><span class="fa fa-comments"></span> Chat - Optimal</h6></button>
 
+ <div class="chat-popup" id="myForm">
+   <form id = "newChatForm" class="form-container">
+     
+     <h6 class="card text-center btn btn-secondary"> OptimalCourseChat </h6>
+     <p class="card"><img src="{% static 'img/books.jpg' %}" height="20px" width="20px" alt="logo_optimal_course"> Hello je suis Serge d'OptimalCourse comment pourrais-je vous aider ?<p>
+     <div id="output"></div>
+     <p class = "card" id="loading">Merci, j'ai bien pris en considération votre demande, appelez le 06 69 48 54 02 pour trouver une reponse optimale à votre recherche.</p>
+     <label for="msg"><b>Message</b></label>
+     <textarea type="text" id ="pubchat" placeholder="Type message.." name="msg" required></textarea>
+
+     <button type="submit" class="btn">Send</button>
+     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+   </form>
+ </div>
 
  
 
@@ -406,6 +421,7 @@
 
   <!-- Custom scripts for this template -->
   <script src="{% static 'js/agency.min.js' %}"></script>
+  <script src="{% static 'js/auto.js' %}"></script>
 
 </body>
 

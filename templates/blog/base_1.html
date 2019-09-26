@@ -24,7 +24,7 @@
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/agency_tic_0.css' %}"> 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/agency_blog.css' %}"> 
   <!-- Custom styles for this template -->
   
  
@@ -103,9 +103,23 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-heading text-uppercase"><font color="Blue">Formation TIC</font></div>
+        <div class="row ">
+          <div class ="col-lg-5" style="left:13px">
+           <h4 class="text-uppercase text-white font-weight-bold">  </h4>
+          </div>
+          <div class ="col-lg-5" style="left:5px">
+           <h4 class="text-uppercase text-white font-weight-bold"> 
+            
+              
+           </h4>
+          </div>
+         </div>
+          
+
+          <p class="text-white-75 font-weight-light mb-5">
+            
+          </p>  
         
-      </div>
     </div>
   </header>
 
@@ -114,193 +128,36 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Formation TIC</h2>
-          <h3 class="section-subheading text-muted">Les TIC, atout majeur de competivité et d'efficacité des entreprises et des services.</h3>
+          <h2 class="section-heading text-uppercase"> Articles</h2>
+          
+          <p class="section-subheading text-muted"></p>
         </div>
       </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{% static 'img/forum_int_2.png' %}" alt="">
-              <h4>La téléinformatique</h4>
-              <p class="text-muted">Echange d'informations entre plusieurs systèmes informatiques</p>
-              
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{% static 'img/forum_int_3.jpg' %}" alt="">
-              <h4>L'electronique</h4>
-              <p class="text-muted">Les composants, l'equipement grand public, les televisions et dvd etc ...</p>
-              
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{% static 'img/forum_int_4.jpg' %}" alt="photo_cryptography">
-              <h4>La Communication numérique</h4>
-              <p class="text-muted">Science de l'information utilisant le web, les réseaux sociaux...</p>
-              
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted"><h6> OptimalCourse propose la montée en compétence sur la:</h6></p>
-          </div>
-        </div>
       
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-5 text-center card" style="background-color: orange">
-          <h4 class="btn btn-secondary">Prise en main partie matérielles</h4>
-          <ul style = "list-style-type: square">
-            <li><h6>PC Portables</h6></li>
-            <li><h6>Ordinateurs bureaux</h6></li>
-            <li><h6>Stations de travail(Serveurs, Imprimantes, Cloud...)</h6></li>
-            
-          </ul>
+      
+      {% for pub in publish %}
+      <div class="row text-center">
+        <div class="col-lg-4" >
+          <div class=" card btn btn-light">
+            <img class="text-center" src="{{pub.photo}}" height="200px" width="300px"alt="logo_forum_introduction">
+          </div>  
         </div>
-        <div class="col-lg-2 text-center">
-        </div>
-        <div class="col-lg-5 text-center card" style="background-color: orange">
-          <h4 class="btn btn-secondary">Prise en main partie logicielle</h4>
-          <ul style = "list-style: square ;">
-            <li><h6>Logiciels internes et externes</h6></li>
-            <li><h6>Système exploitation interne</h6></li>
-            <li><h6>Reseaux internet et mobiles</h6></li>
-            
-          </ul>
-        </div>
+        <div class=" col-lg-8 ">
+          <div class=" card btn btn-light">
+           <h3 class=" text-muted">{{pub.titre}}</h3> 
+           <p> {% autoescape off %}{{pub.contenu}} {% endautoescape %}</p>
+           <a class="nav-link js-scroll-trigger " href="{% url 'edit' %}"><button type="button" class="btn btn-light btn-sm"><font color="red">voir la suite</font></button></a>
+          </div>  
+        </div>    
       </div>
-    <div class="row">
-    </div>
-    <div class="row">
-     <div class="col-lg-12 text-center service-heading">
-      <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'contact' %}">Nous contacter</a>
-     </div>
-    </div>
-  </div>
-    
-  </section>
-  <!-- Team -->
-  <section class="bg-light page-section" id="team">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Notre Equipe</h2>
-          <h3 class="section-subheading text-muted"></h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/bayesian.png' %}" alt="">
-            <h4>Yeo TENAN</h4>
-            <p class="text-muted">Enseignant Mathématique Aix Marseille Université(France)</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/big_data.jpg' %}" alt="">
-            <h4>Serge NANOU</h4>
-            <p class="text-muted">Developpeur d'Applications Python-BIG DATA(EISTI)</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="{% static 'img/crypto.jpg' %}" alt="photo_cryptography">
-            <h4>Yannick ADENI</h4>
-            <p class="text-muted">Ingenieur R&D CRYPTOGRAPHIE(FRANCE)</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <p class="large text-muted"></p>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </section>
 
-  <!-- Clients -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="" alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Portfolio Grid -->
+  
+  <!-- Team -->
+  
 
   <!-- Contact -->
   <section class="page-section" id="contact">
@@ -314,16 +171,16 @@
       <div class="row">
         <div class="col-md-2">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
           </span>
           <font color="yellow"><h4 class="service-heading" >+33 769485402</h4></font>   
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
@@ -406,7 +263,6 @@
   <!-- Custom scripts for this template -->
   <script src="{% static 'js/agency.min.js' %}"></script>
   <script src="{% static 'js/auto.js' %}"></script>
-
 </body>
 
 </html>

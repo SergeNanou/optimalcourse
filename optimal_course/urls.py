@@ -63,6 +63,7 @@ urlpatterns = [
     url(r'^teach/$', teach.views.teach, name='teach'),
     url(r'^test_level/$', teach.views.TestLevel, name='test_level'),
     url(r'^tic/$', tic.views.tic, name='tic'),
+    url(r'^read/$', blog.views.read, name='read'),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
