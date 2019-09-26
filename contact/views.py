@@ -17,13 +17,15 @@ def contact(request):
         if form.is_valid():
             yourname = form.cleaned_data['yourname']
             sujet = form.cleaned_data['subject']
+            phone = form.cleaned_data['phone']
             message = form.cleaned_data['message']
             email = form.cleaned_data['email']
             
             ContLead.objects.create(yourname=yourname,
                                     subject=sujet,
                                     message=message,
-                                    email=email)
+                                    email=email,
+                                    phone=phone)
             # assert False
             return HttpResponseRedirect('/contact?submitted=True')
     else:
