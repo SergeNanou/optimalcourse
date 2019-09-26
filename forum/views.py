@@ -53,7 +53,7 @@ import ast
 
 #     return render(request,'forum/ind_tic_r.html', {'publish':publish})
 
-# views for publish all messages
+# Views for publish all messages
 @login_required(login_url='/user_login/')
 def help_ent(request):
     # take  all messages publishing

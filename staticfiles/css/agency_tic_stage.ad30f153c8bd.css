@@ -184,14 +184,13 @@ img::-moz-selection {
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url("../img/teacher.jpg");
-  background-color: orange;
+  background-image: url("../img/stage.fd29319975a5.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
   filter: brightness(90%);
-  height: 535px;
+  height: 500px;
   
 }
 
@@ -605,7 +604,7 @@ header.masthead .intro-text .intro-heading {
 
 section#contact {
   background-color: #212529;
-  background-image: url("../img/map-image.png");
+  background-image: url("../img/map-image.f40ed5b1e791.png");
   background-repeat: no-repeat;
   background-position: center;
 }

@@ -12,8 +12,6 @@
     setTimeout("playAudio()", 3000);*/
     function openForm() {
       document.getElementById("myForm").style.display = "block";
-      var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
-      audio.play();
     }
 
     function closeForm() {

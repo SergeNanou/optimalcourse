@@ -184,7 +184,7 @@ img::-moz-selection {
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url("../img/teacher.jpg");
+  background-image: url("../img/teacher.61296c30a0d1.jpg");
   background-color: orange;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -605,7 +605,7 @@ header.masthead .intro-text .intro-heading {
 
 section#contact {
   background-color: #212529;
-  background-image: url("../img/map-image.png");
+  background-image: url("../img/map-image.f40ed5b1e791.png");
   background-repeat: no-repeat;
   background-position: center;
 }
