@@ -24,9 +24,9 @@ def TestLevel(request):
     form = StudentForm(request.POST or None)
     # if this is a POST request we need to process the form data
     
-        # create a form instance and populate it with data from the request:
+    # create a form instance and populate it with data from the request:
         
-        # check whether it's valid:
+    # check whether it's valid:
     if form.is_valid():
         sauvegarde = True
         niveau = form.cleaned_data['niveau']
@@ -39,9 +39,3 @@ def TestLevel(request):
                                    phone=phone)
     return render(request,'teach/lev_test.html', {'form': form, 
         	'sauvegarde':sauvegarde})
-       
-       
-    # # if a GET (or any other method) we'll create a blank form
-    # else:
-    #     form = StudentForm()
-    # return render(request,'teach/lev_test.html', {'form': form})
